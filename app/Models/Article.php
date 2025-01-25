@@ -20,10 +20,13 @@ class Article extends Model
     // public $incrementing = false;
 
     // Definisikan kolom lain yang bisa diisi
+
     protected $fillable = [
+        'banner',
         'title',
-        'content',
+        'body',
+        'published_at',
         'status',
-        // tambahkan kolom lain sesuai kebutuhan
+        'user_id',
     ];
 }
