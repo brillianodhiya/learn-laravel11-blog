@@ -55,4 +55,13 @@ class User extends Authenticatable
     {
         return $this->role === 'editor';
     }
+    public function articles()
+    {
+        return $this->hasMany(Article::class, 'user_id');
+    }
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class, 'level_id');
+    }
 }

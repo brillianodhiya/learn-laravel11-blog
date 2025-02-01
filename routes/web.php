@@ -13,6 +13,7 @@ Route::post('/articles', [ArticleController::class, 'store'])->name('articles.st
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/{id_artikel}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/show-all', [ArticleController::class, 'showAll'])->name('show.all');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

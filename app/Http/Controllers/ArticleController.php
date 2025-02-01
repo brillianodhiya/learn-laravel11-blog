@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Category;
 
 class ArticleController extends Controller
 {
@@ -49,5 +50,13 @@ class ArticleController extends Controller
         } else {
             return redirect()->route('articles.create')->with('error', 'Gagal membuat artikel.');
         }
+    }
+
+    public function showAll()
+    {
+        $articles = Article::with('category', 'user')->get();
+        $categories = Category::all();
+
+        return view('articles.show_all', compact('articles', 'categories'));
     }
 }
